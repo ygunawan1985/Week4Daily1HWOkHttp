@@ -18,4 +18,4 @@ Run the Android project
 - The application pulls out my GitHub profile (ygunawan1985) using OkHttp API call.
 - Click on the Repositories List to see all the submitted repositories.
 
-![](screenshots/githubprofile.png)
+![](ScreenShots/githubprofile.png)
