@@ -39,15 +39,15 @@ public class OkHttpHelperForRepositories {
         Response response = getClient().newCall(request).execute();
         //return new Gson().fromJson(response.body().string(), GitReposResponse.class);
 
-        List<GitReposResponse> gitReposResponses = new ArrayList<>();
+        List<GitReposResponse> gitReposResponses;
 
-//        Type typeList = new TypeToken<List<GitReposResponse>>(){}.getType();
-//        Gson gson = new Gson();
-//        responseString = response.body().toString();
-//        gitReposResponses = gson.fromJson(responseString, typeList);
+        Type typeList = new TypeToken<List<GitReposResponse>>(){}.getType();
+        Gson gson = new Gson();
+        String responseString = response.body().toString();
+        gitReposResponses = gson.fromJson(responseString, typeList);
 
-        GitReposResponse gitReposResponse = new Gson().fromJson(response.body().toString(), GitReposResponse.class);
-        gitReposResponses.add(gitReposResponse);
+        //GitReposResponse gitReposResponse = new Gson().fromJson(response.body().toString(), GitReposResponse.class);
+        //gitReposResponses.add(gitReposResponse);
         return gitReposResponses;
     }
 
