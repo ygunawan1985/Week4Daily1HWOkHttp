@@ -39,12 +39,16 @@ public class OkHttpHelperForRepositories {
         Response response = getClient().newCall(request).execute();
         //return new Gson().fromJson(response.body().string(), GitReposResponse.class);
 
-        //List<GitReposResponse> gitReposResponses = new Gson().fromJson(response.body().string(), GitReposResponse.class);
+        List<GitReposResponse> gitReposResponses = new ArrayList<>();
 
-        Type listType = new TypeToken<ArrayList<GitReposResponse>>(){}.getType();
-        List<GitReposResponse> gitReposResponseList = new Gson().fromJson(response.body().string(), listType);
+//        Type typeList = new TypeToken<List<GitReposResponse>>(){}.getType();
+//        Gson gson = new Gson();
+//        responseString = response.body().toString();
+//        gitReposResponses = gson.fromJson(responseString, typeList);
 
-        return gitReposResponseList;
+        GitReposResponse gitReposResponse = new Gson().fromJson(response.body().toString(), GitReposResponse.class);
+        gitReposResponses.add(gitReposResponse);
+        return gitReposResponses;
     }
 
 //    public static void getAsyncroniousOkHttpResponce(final OkHttpResponseCallback okHttpResponseCallback) {
